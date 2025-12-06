@@ -7623,13 +7623,13 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/var/folders/l1/991h4ps92ps2j8xfn3ycczzm0000gn/T/ipykernel_88727/3904874488.py:19: UserWarning: PySoundFile failed. Trying audioread instead.
+<pre>/var/folders/l1/991h4ps92ps2j8xfn3ycczzm0000gn/T/ipykernel_90267/3904874488.py:19: UserWarning: PySoundFile failed. Trying audioread instead.
   y, _ = librosa.load(in_path, sr=sr, mono=True)
 /opt/anaconda3/lib/python3.13/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
 	Deprecated as of librosa version 0.10.0.
 	It will be removed in librosa version 1.0.
   y, sr_native = __audioread_load(path, offset, duration, dtype)
-/var/folders/l1/991h4ps92ps2j8xfn3ycczzm0000gn/T/ipykernel_88727/3904874488.py:19: UserWarning: PySoundFile failed. Trying audioread instead.
+/var/folders/l1/991h4ps92ps2j8xfn3ycczzm0000gn/T/ipykernel_90267/3904874488.py:19: UserWarning: PySoundFile failed. Trying audioread instead.
   y, _ = librosa.load(in_path, sr=sr, mono=True)
 /opt/anaconda3/lib/python3.13/site-packages/librosa/core/audio.py:184: FutureWarning: librosa.core.audio.__audioread_load
 	Deprecated as of librosa version 0.10.0.
@@ -8087,7 +8087,7 @@ PCA-Reduced DataFrame:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>This is the OPTICS algorithm for min_samples=2 and eps=8.</strong></p>
+<p><strong>This is the OPTICS algorithm for min_samples=2 and eps=8 using cosine distance.</strong></p>
 </div>
 </div>
 </div>
@@ -8096,7 +8096,7 @@ PCA-Reduced DataFrame:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">OPTICS</span>
@@ -8121,7 +8121,7 @@ PCA-Reduced DataFrame:
 <span class="n">optics</span> <span class="o">=</span> <span class="n">OPTICS</span><span class="p">(</span>
     <span class="n">max_eps</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
     <span class="n">min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">metric</span><span class="o">=</span><span class="s1">'euclidean'</span><span class="p">,</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s1">'cosine'</span><span class="p">,</span>
     <span class="n">min_cluster_size</span><span class="o">=</span><span class="mi">2</span>
 <span class="p">)</span>
 
@@ -8167,11 +8167,11 @@ PCA-Reduced DataFrame:
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
 OUTLIER INDICES TO DROP (-1 labels):
-[0, 1, 2, 5, 8, 9, 10, 12, 13, 14, 15, 16, 19, 20, 21, 23, 25, 27, 28, 29, 30, 31, 32, 36, 37, 38, 39, 40, 41, 42, 43, 47, 48, 49, 50, 51, 52, 53, 54, 56, 59]
+[4, 6, 11, 12, 13, 15, 17, 19, 21, 22, 23, 25, 26, 29, 33, 39, 40, 42, 43, 50, 51, 54]
 
-Outliers detected: 41
+Outliers detected: 22
 Total samples: 60
-Remaining samples: 19
+Remaining samples: 38
 </pre>
 </div>
 </div>
@@ -8259,7 +8259,7 @@ OUTLIER INDICES
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>KNN model. Run on all modified data sets.</strong></p>
+<p><strong>KNN model for k=5. Run on all modified data sets.</strong></p>
 </div>
 </div>
 </div>
@@ -8268,7 +8268,7 @@ OUTLIER INDICES
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -8416,23 +8416,23 @@ AVERAGE Accuracy with every datapoint as the test sample:
 0.8947368421052632
 
 Cross validation scores:
-[1.         0.66666667 1.         1.         1.        ]
+[0.66666667 0.6        0.8        0.8        0.6       ]
 
 OVERALL Accuracy: 0.8333333333333334
 
 Confusion Matrix:
-[[3 0]
- [1 2]]
+[[7 0]
+ [2 3]]
 
 Classification Report:
               precision    recall  f1-score   support
 
-    deepfake       0.75      1.00      0.86         3
-        real       1.00      0.67      0.80         3
+    deepfake       0.78      1.00      0.88         7
+        real       1.00      0.60      0.75         5
 
-    accuracy                           0.83         6
-   macro avg       0.88      0.83      0.83         6
-weighted avg       0.88      0.83      0.83         6
+    accuracy                           0.83        12
+   macro avg       0.89      0.80      0.81        12
+weighted avg       0.87      0.83      0.82        12
 
 ======= RUNNING KNN FOR DATA SET: ISOLATION FOREST ========
 
@@ -8479,7 +8479,7 @@ weighted avg       0.94      0.93      0.93        15
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -8619,7 +8619,7 @@ weighted avg       0.79      0.67      0.61         9
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -8739,20 +8739,6 @@ Classification Report:
 weighted avg       0.91      0.89      0.89         9
 
 </pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
 </div>
 </div>
 </div>
